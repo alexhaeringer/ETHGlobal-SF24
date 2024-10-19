@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: 'Pixel-bold';
+  src: url(./minecraft-font/MinecraftBold-nMK1.otf);
+}
+
+@font-face {
+  font-family: 'Pixel-regular';
+  src: url(./minecraft-font/MinecraftRegular-Bmg3.otf);
+}
+
+@font-face {
+  font-family: 'Pixel-italic';
+  src: url(./minecraft-font/MinecraftItalic-R8Mo.otf);
+}
+
+@font-face {
+  font-family: 'Pixel-italicbold';
+  src: url(./minecraft-font/MinecraftBoldItalic-1y1e.otf);
+}
+
+

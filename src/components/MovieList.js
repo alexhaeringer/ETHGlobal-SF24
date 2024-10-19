@@ -7,7 +7,7 @@ function MovieList () {
     ]
 
     return (
-        <div>
+        <div style = {{ color: 'white', fontFamily: 'Pixel-regular'}}>
         <h2>Movies</h2>
         <ul>
             {movies.map((movie) => (

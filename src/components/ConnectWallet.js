@@ -19,8 +19,8 @@ function ConnectWallet() {
   };
 
   return (
-    <div>
-      <button onClick={connectWallet}>
+    <div >
+      <button onClick={connectWallet} style={{ fontFamily: 'Pixel-regular', position: 'absolute', top: '33px', right: '33px' }} >
         {account ? `Connected: ${account}` : 'Connect Wallet'}
       </button>
     </div>
