@@ -17,33 +17,7 @@ function MovieList () {
     ]
 
     const [movies, setMovies] = useState(initialMovies);
-    const [provider, setProvider] = useState(null);
-    const [signer, setSigner] = useState(null);
     const [contract, setContract] = useState(null);
-
-    useEffect(() => {
-        const connectToBlockchain = async () => {
-          if (window.ethereum) {
-            try {
-              const newProvider = new ethers.providers.Web3Provider(window.ethereum);
-              await newProvider.send("eth_requestAccounts", []);
-              const newSigner = newProvider.getSigner();
-              const newContract = new ethers.Contract(contractAddress, contractABI, newSigner);
-    
-              setProvider(newProvider);
-              setSigner(newSigner);
-              setContract(newContract);
-            } catch (error) {
-              console.error("Error connecting to MetaMask:", error);
-            }
-          } else {
-            console.error("MetaMask is not installed!");
-          }
-        };
-
-        connectToBlockchain();
-    }, []);
-
 
     const handleVote = async (id, type) => {
         if (!contract) return;
@@ -51,7 +25,6 @@ function MovieList () {
         try {
             const tx = await contract.vote(id, type === 'up');
             await tx.wait();
-            // Fetch updated votes after the transaction is confirmed
             fetchVotes();
         } catch (error) {
             console.error("Error voting:", error);
@@ -77,6 +50,25 @@ function MovieList () {
 
       useEffect(() => {
         fetchVotes();
+      }, [contract]);
+
+      useEffect(() => {
+        const initContract = async () => {
+          if (window.ethereum) {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const _contract = new ethers.Contract(contractAddress, contractABI, signer);
+            setContract(_contract);
+          }
+        };
+    
+        initContract();
+      }, []);
+    
+      useEffect(() => {
+        if (contract) {
+          fetchVotes();
+        }
       }, [contract]);
 
     const sortedMovies = [...movies].sort((a, b) => b.votes - a.votes);

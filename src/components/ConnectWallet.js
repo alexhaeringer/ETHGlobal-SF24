@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
 
-function ConnectWallet() {
+/*function ConnectWallet() {
   const [account, setAccount] = useState('');
 
   const connectWallet = async () => {
@@ -23,6 +23,19 @@ function ConnectWallet() {
   return (
     <div>
       <button onClick={connectWallet} style={{ fontFamily: 'Pixel-regular', position: 'absolute', top: '33px', right: '33px' }}>
+        {account ? `Connected: ${account}` : 'Connect Wallet'}
+      </button>
+    </div>
+  );
+}*/
+
+function ConnectWallet({ connectToMetaMask, account }) {
+  return (
+    <div>
+      <button 
+        onClick={connectToMetaMask} 
+        style={{ fontFamily: 'Pixel-regular', position: 'absolute', top: '33px', right: '33px' }}
+      >
         {account ? `Connected: ${account}` : 'Connect Wallet'}
       </button>
     </div>
