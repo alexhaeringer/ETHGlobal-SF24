@@ -2,12 +2,16 @@ import React, {useState} from "react";
 
 function MovieList () {
     const initialMovies = [
-        { id: 1, title: 'Dune 2', year: 2010, image: 'Dune2.jpeg', votes: 0 },
-        { id: 2, title: 'Ex Machina', year: 2004, image: 'Exmachina.jpg', votes: 0 },
-        { id: 3, title: 'Interstellar', year: 2010, image: 'Interstellar.jpg', votes: 0 },
-        { id: 4, title: 'Oceans 11', year: 2004, image: 'oceans11.jpg', votes: 0 },
-        { id: 5, title: 'The Big Short', year: 2010, image: 'thebigshort.jpg', votes: 0 },
-        { id: 6, title: 'The Wolf of Wallstreet', year: 2004, image: 'wolfofwallstreet.jpg', votes: 0 },
+        { id: 1, title: 'Dune 2', year: 2024, image: 'Dune2.jpeg', votes: 0 },
+        { id: 2, title: 'Ex Machina', year: 2014, image: 'Exmachina.jpg', votes: 0 },
+        { id: 3, title: 'Interstellar', year: 2014, image: 'Interstellar.jpg', votes: 0 },
+        { id: 4, title: 'Oceans 11', year: 2001, image: 'oceans11.jpg', votes: 0 },
+        { id: 5, title: 'The Big Short', year: 2015, image: 'thebigshort.jpg', votes: 0 },
+        { id: 6, title: 'The Wolf of Wallstreet', year: 2013, image: 'wolfofwallstreet.jpg', votes: 0 },
+        { id: 7, title: 'The Hunger Games', year: 2012, image: 'hungergames.jpg', votes: 0 },
+        { id: 8, title: 'Titanic', year: 1997, image: 'titanic.png', votes: 0 },
+        { id: 9, title: 'The Intouchables', year: 2011, image: 'intouchables.webp', votes: 0 },
+        { id: 10, title: 'LalaLand', year: 2016, image: 'lalaland.webp', votes: 0 },
     ]
 
     const [movies, setMovies] = useState(initialMovies);
