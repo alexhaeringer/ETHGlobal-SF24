@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { ethers } from "ethers";
+import { contractAddress, contractABI } from "../config.js";
 
 function MovieList () {
     const initialMovies = [
@@ -79,10 +81,13 @@ function MovieList () {
                                 borderRadius: '5px',
                             }}
                         />
-                        <div>
-                            {movie.title} ({movie.year})
+                        <div style={{ fontSize: 30}}>
+                            {movie.title} 
                         </div>
-                        <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ fontSize: 20}}>
+                            ({movie.year})
+                        </div>
+                        <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20 }}>
                             <span>Rank: {sortedMovies.every((m) => m.votes === 0) ? "-" : rankings[index]}</span>
                             <img
                                 src={`${process.env.PUBLIC_URL}/arrows/uparrow.png`}
